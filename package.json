@@ -1,0 +1,23 @@
+{
+  "name": "jsunittest",
+  "version": "1.0.0",
+  "description": "JavaScript testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha 'specs/*.specs.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dheepdatascigit/javascripttesting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dheepdatascigit/javascripttesting/issues"
+  },
+  "homepage": "https://github.com/dheepdatascigit/javascripttesting#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  }
+}
