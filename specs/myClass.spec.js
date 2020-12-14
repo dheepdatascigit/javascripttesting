@@ -29,4 +29,14 @@ describe("Test suit for the spy", function () {
         myObj.callTheCallback(callback);
         expect(callback.calledOnce).to.be.true;
     });
+
+    it("mock the sayHellow method", function() {
+        let mock = sinon.mock(myObj);
+        let expectation = mock.expects("sayHello"); //function name we are mocking
+        expectation.exactly(2);
+        expectation.withArgs("hello world")
+        myObj.callAnotherFn(10, 20);
+        //expect(callback.calledOnce).to.be.true;
+        mock.verify();
+    });
 });
