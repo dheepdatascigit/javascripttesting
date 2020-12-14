@@ -13,3 +13,7 @@ Default branch is `develop`
 - install testing libraries `npm i --save-dev mocha chai`
 - source is kept in dir **src**
 - test is kept in dir **specs**
+
+# issues
+## mocha was recognised as internal or external command
+run `npm install -g mocha chai` in the directory
