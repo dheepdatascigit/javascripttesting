@@ -44,7 +44,13 @@ describe.skip("Test suit for the spy", function () {
 describe("Test suit for stub", function() {
   it("Stub the add method", function() {
       let stub = sinon.stub(myObj, "add"); //function to be stubbed
-      stub.withArgs(10,20).returns(100);
+      stub
+        .withArgs(10,20)
+        .onFirstCall()
+        .returns(100)
+        .onSecondCall()
+        .returns(200);
       expect(myObj.callAnotherFn(10, 20)).to.be.equal(100);
-  });  
+      expect(myObj.callAnotherFn(10, 20)).to.be.equal(200);
+  });
 });
