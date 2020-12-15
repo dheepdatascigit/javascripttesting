@@ -41,7 +41,7 @@ describe.skip("Test suit for the spy", function () {
     });
 });
 
-describe("Test suit for stub", function() {
+describe.skip("Test suit for stub", function() {
   it("Stub the add method", function() {
       let stub = sinon.stub(myObj, "add"); //function to be stubbed
       stub
@@ -53,4 +53,15 @@ describe("Test suit for stub", function() {
       expect(myObj.callAnotherFn(10, 20)).to.be.equal(100);
       expect(myObj.callAnotherFn(10, 20)).to.be.equal(200);
   });
+});
+
+describe("Test the promise", function() {
+    it("Promise test case", function(done) {
+        this.timeout(5000);
+        myObj.testPromise().then(function(result) {
+            expect(result).to.be.equal(6);
+            expect(false).to.be.false;
+            done();
+        });
+    });
 });
