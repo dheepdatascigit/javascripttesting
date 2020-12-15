@@ -3,6 +3,9 @@ let myObj = new MyClass();
 let sinon = require("sinon");
 let chai = require("chai");
 let expect = chai.expect;
+const chaiaspromised = require("chai-as-promised");
+chai.use(chaiaspromised);
+
 describe.skip("Test suit mocha", function () {
     it("Test add method", function () {
         expect(myObj.add(1,2)).to.be.equal(3);
@@ -56,12 +59,15 @@ describe.skip("Test suit for stub", function() {
 });
 
 describe("Test the promise", function() {
-    it("Promise test case", function(done) {
-        this.timeout(5000);
-        myObj.testPromise().then(function(result) {
+    it("Promise test case", function() {
+        this.timeout(0);
+/*        myObj.testPromise().then(function(result) {
             expect(result).to.be.equal(6);
             expect(false).to.be.false;
             done();
+
         });
+*/
+        return expect(myObj.testPromise()).to.eventually.equal(6);
     });
 });

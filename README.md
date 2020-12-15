@@ -10,7 +10,7 @@ Default branch is `develop`
 ## init project
 
 - init project to buil pacakage.json `npm init`
-- install testing libraries `npm i --save-dev mocha chai sinon`
+- install testing libraries `npm i --save-dev mocha chai sinon chai-as-promised`
 - source is kept in dir **src**
 - test is kept in dir **specs**
 
