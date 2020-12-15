@@ -3,7 +3,7 @@ let myObj = new MyClass();
 let sinon = require("sinon");
 let chai = require("chai");
 let expect = chai.expect;
-describe("Test suit mocha", function () {
+describe.skip("Test suit mocha", function () {
     it("Test add method", function () {
         expect(myObj.add(1,2)).to.be.equal(3);
     });
@@ -13,7 +13,7 @@ describe("Test suit mocha", function () {
     });
 });
 
-describe("Test suit for the spy", function () {
+describe.skip("Test suit for the spy", function () {
     it("spy the add method", function () {
         let spy = sinon.spy(myObj, "add");
         let var1 = 10, var2 = 20;
@@ -39,4 +39,18 @@ describe("Test suit for the spy", function () {
         //expect(callback.calledOnce).to.be.true;
         mock.verify();
     });
+});
+
+describe("Test suit for stub", function() {
+  it("Stub the add method", function() {
+      let stub = sinon.stub(myObj, "add"); //function to be stubbed
+      stub
+        .withArgs(10,20)
+        .onFirstCall()
+        .returns(100)
+        .onSecondCall()
+        .returns(200);
+      expect(myObj.callAnotherFn(10, 20)).to.be.equal(100);
+      expect(myObj.callAnotherFn(10, 20)).to.be.equal(200);
+  });
 });
